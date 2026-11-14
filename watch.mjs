@@ -428,7 +428,9 @@ async function main() {
     }
     await syncFromCloud(state);
     const age = state.lastCheck ? Date.now() - Date.parse(state.lastCheck) : Infinity;
-    if (ARGS.has("--force") || age > CLOUD_FRESH_MS) {
+    // With a cloud watcher configured the Mac is only a fallback; without one it is the watcher.
+    const maxAge = REPO ? CLOUD_FRESH_MS : 9 * MIN;
+    if (ARGS.has("--force") || age > maxAge) {
       log(ARGS.has("--force") ? "checking Apple from this Mac (requested)" : `no fresh result for ${Number.isFinite(age) ? Math.round(age / MIN) + " min" : "ever"}; checking Apple from this Mac`);
       if (!(await online())) { log("this Mac is offline; skipping"); saveState(state); return; }
       const ok = await checkApple(state);
