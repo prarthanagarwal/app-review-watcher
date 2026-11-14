@@ -1,0 +1,76 @@
+name: Watch App Review appointments
+
+on:
+  schedule:
+    - cron: "2-59/10 * * * *" # every 10 minutes, offset from :00 when GitHub's scheduler is busiest
+  workflow_dispatch:
+
+permissions:
+  contents: write # to save results on the "state" branch
+  actions: write  # to keep the schedule from being auto-disabled
+
+concurrency:
+  group: watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-fund --no-audit
+
+      - name: Restore previous results
+        run: |
+          set +e
+          git ls-remote --exit-code --heads origin state > /dev/null
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
+            git fetch --quiet --depth=1 origin state
+            git show FETCH_HEAD:state.json > state.json
+            echo "Restored results saved at $(git log -1 --format=%cI FETCH_HEAD)"
+          elif [ "$rc" -eq 2 ]; then
+            echo "No saved results yet (first run)"
+          else
+            # Don't start from scratch on a network blip: that would silently skip alerts.
+            echo "Couldn't reach the state branch"; exit 1
+          fi
+
+      - name: Check Apple's schedule
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+          WATCH_TIMEZONE: ${{ vars.WATCH_TIMEZONE || 'UTC' }}
+        run: node watch.mjs
+
+      - name: Save results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s state.json ] || { echo "Nothing to save"; exit 0; }
+          dir="$(mktemp -d)"
+          cp state.json "$dir/"
+          cd "$dir"
+          git init --quiet --initial-branch=state
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          git commit --quiet -m "Watcher results $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push --quiet --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" state
+
+      - name: Keep the schedule enabled
+        # GitHub pauses scheduled workflows in repos with no activity for 60 days.
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow enable watch.yml --repo "$GITHUB_REPOSITORY"

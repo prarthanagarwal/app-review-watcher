@@ -1,0 +1,14 @@
+{
+  "name": "app-review-watcher",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Alerts you when Apple posts or reopens an App Review appointment",
+  "scripts": {
+    "check": "node watch.mjs --force",
+    "test-alert": "node watch.mjs --test-notify"
+  },
+  "dependencies": {
+    "playwright-core": "1.48.2"
+  }
+}
