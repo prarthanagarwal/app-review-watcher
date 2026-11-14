@@ -50,6 +50,24 @@ and the [GitHub CLI](https://cli.github.com).
 
 Use **Send Test Alert to Phone** in the menu bar app's ⋯ menu to confirm phone alerts arrive.
 
+### Recommended: a reliable clock (Cloudflare, free)
+
+GitHub's scheduler often skips runs on small repositories; in testing it ran once in 7½ hours instead
+of every 10 minutes. The `cloudflare/` folder holds a tiny Worker that starts the workflow every 10
+minutes instead (those runs start within seconds) and pushes an ntfy alert if no check has succeeded
+for 45 minutes.
+
+1. Create a [fine-grained GitHub token](https://github.com/settings/personal-access-tokens/new) for
+   this repository only, with the **Actions: Read and write** permission.
+2. Set `REPO` in `cloudflare/wrangler.toml` to your fork, then deploy:
+   ```sh
+   cd cloudflare
+   npx wrangler login
+   npx wrangler deploy
+   pbpaste | npx wrangler secret put GITHUB_TOKEN   # with the token copied to the clipboard
+   ```
+3. Give it your ntfy topic the same way: `echo -n "your-topic" | npx wrangler secret put NTFY_TOPIC`
+
 ### Optional: get told if the watcher itself stops
 
 Create a free check at [healthchecks.io](https://healthchecks.io) with a 30-minute period and save its
@@ -62,7 +80,7 @@ gh secret set HEALTHCHECK_URL --body "https://hc-ping.com/your-check-id"
 
 ## Good to know
 
-- GitHub's scheduler is best-effort. Runs are sometimes 5–15 minutes late, which is why the Mac acts as a fallback.
+- GitHub's own scheduler is best-effort and may skip most runs; use the Cloudflare clock above. The Mac is a further fallback while it's awake.
 - ntfy topics are readable by anyone who knows the name. The installer generates a long random one; keep it out of the repository.
 - Results are stored as a single commit on the `state` branch, so the main branch history stays clean.
 - To watch a different kind of activity, set the `WATCH_MATCH` environment variable to a pattern such as `group lab`.
@@ -71,6 +89,7 @@ gh secret set HEALTHCHECK_URL --body "https://hc-ping.com/your-check-id"
 ## Files
 
 - `watch.mjs`: the watcher (used both in the cloud and on the Mac)
-- `.github/workflows/watch.yml`: the cloud schedule
+- `.github/workflows/watch.yml`: the cloud check (GitHub's cron is kept as a backup)
+- `cloudflare/`: the Worker that starts it every 10 minutes and watches for stale results
 - `MenuBarApp/`: the SwiftUI menu bar app
 - `scripts/`: Mac install and uninstall
