@@ -1,0 +1,257 @@
+{
+  "version": 2,
+  "initialized": true,
+  "source": "cloud",
+  "lastCheck": "2026-11-28T17:00:50.826Z",
+  "lastAttempt": "2026-11-28T17:00:50.826Z",
+  "lastError": null,
+  "errorCount": 0,
+  "seenEvents": {
+    "NLT5YC7N7L": "2026-11-14T01:17:15.349Z",
+    "72GUVG98SU": "2026-11-14T01:17:15.349Z",
+    "3MTMB2THXR": "2026-11-15T08:11:01.868Z",
+    "9GUU2A6QDL": "2026-11-15T08:11:01.868Z",
+    "88W4C58Y32": "2026-11-22T08:10:58.290Z",
+    "452N5HG83M": "2026-11-22T08:10:58.290Z"
+  },
+  "events": {
+    "3MTMB2THXR": {
+      "id": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "title": "App Review appointment",
+      "dates": "December 1-2, 2026",
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-02",
+      "deadline": "2026-11-30T08:00:00.000Z",
+      "deadlineText": "November 30 8:00 AM",
+      "status": "full",
+      "format": "Online",
+      "firstSeen": "2026-11-15T08:11:01.868Z",
+      "statusSince": "2026-11-27T09:00:50.287Z"
+    },
+    "9GUU2A6QDL": {
+      "id": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "title": "App Review appointment",
+      "dates": "December 3-4, 2026",
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-04",
+      "deadline": "2026-12-02T08:00:00.000Z",
+      "deadlineText": "December 2 8:00 AM",
+      "status": "full",
+      "format": "Online",
+      "firstSeen": "2026-11-15T08:11:01.868Z",
+      "statusSince": "2026-11-27T11:30:48.510Z"
+    },
+    "88W4C58Y32": {
+      "id": "88W4C58Y32",
+      "url": "https://developer.apple.com/events/view/88W4C58Y32/dashboard",
+      "title": "App Review appointment",
+      "dates": "December 8-9, 2026",
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-09",
+      "deadline": null,
+      "deadlineText": null,
+      "status": "unknown",
+      "format": "Online",
+      "firstSeen": "2026-11-22T08:10:58.290Z",
+      "statusSince": "2026-11-22T08:10:58.290Z"
+    },
+    "452N5HG83M": {
+      "id": "452N5HG83M",
+      "url": "https://developer.apple.com/events/view/452N5HG83M/dashboard",
+      "title": "App Review appointment",
+      "dates": "December 10-11, 2026",
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-11",
+      "deadline": null,
+      "deadlineText": null,
+      "status": "unknown",
+      "format": "Online",
+      "firstSeen": "2026-11-22T08:10:58.290Z",
+      "statusSince": "2026-11-22T08:10:58.290Z"
+    }
+  },
+  "alerts": [
+    {
+      "key": "status:9GUU2A6QDL:full",
+      "kind": "status",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-27T11:30:48.510Z",
+      "title": "App Review Dec 3–4 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:9GUU2A6QDL:open",
+      "kind": "open",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-27T10:50:52.823Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 3–4 just opened up · request by Dec 2, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-27T09:00:50.287Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:open",
+      "kind": "open",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-27T08:50:52.924Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 1–2 just opened up · request by Nov 30, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:9GUU2A6QDL:full",
+      "kind": "status",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-26T05:20:52.144Z",
+      "title": "App Review Dec 3–4 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:9GUU2A6QDL:open",
+      "kind": "open",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-26T05:00:50.229Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 3–4 just opened up · request by Dec 2, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T20:30:50.727Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:open",
+      "kind": "open",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T20:20:48.996Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 1–2 just opened up · request by Nov 30, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T20:00:52.118Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:open",
+      "kind": "open",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T19:50:56.407Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 1–2 just opened up · request by Nov 30, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T09:40:53.087Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:open",
+      "kind": "open",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-24T09:00:52.567Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 1–2 just opened up · request by Nov 30, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:9GUU2A6QDL:full",
+      "kind": "status",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-23T15:50:50.276Z",
+      "title": "App Review Dec 3–4 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:9GUU2A6QDL:open",
+      "kind": "open",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-23T15:40:50.942Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 3–4 just opened up · request by Dec 2, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:9GUU2A6QDL:full",
+      "kind": "status",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-23T11:20:51.619Z",
+      "title": "App Review Dec 3–4 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:9GUU2A6QDL:open",
+      "kind": "open",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-23T11:00:51.042Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 3–4 just opened up · request by Dec 2, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-23T09:20:50.419Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:open",
+      "kind": "open",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-23T08:50:57.376Z",
+      "title": "App Review slots are OPEN",
+      "message": "Dec 1–2 just opened up · request by Nov 30, 1:30 PM GMT+5:30"
+    },
+    {
+      "key": "status:9GUU2A6QDL:full",
+      "kind": "status",
+      "eventId": "9GUU2A6QDL",
+      "url": "https://developer.apple.com/events/view/9GUU2A6QDL/dashboard",
+      "time": "2026-11-22T12:40:48.214Z",
+      "title": "App Review Dec 3–4 is now full",
+      "message": "Was OPEN."
+    },
+    {
+      "key": "status:3MTMB2THXR:full",
+      "kind": "status",
+      "eventId": "3MTMB2THXR",
+      "url": "https://developer.apple.com/events/view/3MTMB2THXR/dashboard",
+      "time": "2026-11-22T08:20:48.447Z",
+      "title": "App Review Dec 1–2 is now full",
+      "message": "Was OPEN."
+    }
+  ]
+}
